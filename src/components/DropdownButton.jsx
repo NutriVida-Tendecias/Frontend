@@ -38,7 +38,7 @@ const DropdownButton = ({ title }) => {
 
     return (
         <div
-            className="bg-white text-sm hover:bg-orange-100 border-2 border-orange-500 text-white flex justify-center items-center relative px-3 py-1 rounded-lg hover:cursor-pointer"
+            className="bg-orange-500 text-sm hover:bg-orange-400 border-2 border-orange-500 text-white flex justify-center items-center relative px-3 py-1 rounded-lg hover:cursor-pointer"
             onClick={onClickButton}
             onBlur={onClickButton}
             ref={dropdownRef}
@@ -47,7 +47,7 @@ const DropdownButton = ({ title }) => {
                 <h6>{title}</h6>
                 {!open ? <FaChevronDown /> : <FaChevronUp />}
             </div>
-            <div className={`transition-transform transition-opacity duration-100 ${open ? "transform scale-y-100 opacity-100" : "transform scale-y-0 opacity-0"} absolute top-10 bg-orange-100 flex flex-col justify-center items-center rounded-lg w-full text-bold`}
+            <div className={`transition-transform transition-opacity duration-100 ${open ? "transform scale-y-100 opacity-100" : "transform scale-y-0 opacity-0"} absolute top-10 bg-orange-400 flex flex-col justify-center items-center rounded-lg w-full text-bold`}
             >
                 <div
                     className="rounded-t-lg w-full py-2 flex justify-center hover:bg-orange-300"

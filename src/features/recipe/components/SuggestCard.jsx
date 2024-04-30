@@ -11,7 +11,7 @@ const SuggestCard = ({ recipe }) => {
             </div>
             <div className="flex flex-col gap-5 flex-1 justify-between items-center">
                 <h4 className="break-words text-center font-bold">{label}</h4>
-                <Link to={url} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center text-orange-500 hover:text-orange-400 font-bold break-all text-sm text-center">
+                <Link to={url} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center text-orange-500 hover:text-blue-500 font-bold break-all text-sm text-center">
                     {source}
                     <AiOutlineLink />
                 </Link>

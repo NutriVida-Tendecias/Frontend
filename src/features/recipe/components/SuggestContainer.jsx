@@ -36,7 +36,7 @@ const SuggestContainer = ({ type, query }) => {
                         className="bg-orange-500 flex gap-1 justify-center items-center text-white px-3 py-1 rounded-lg hover:bg-orange-400 text-sm"
                         onClick={onClickRefresh}
                     >
-                        Reload
+                        Refrescar
                         <BiRefresh />
                     </button>
                 </div>
