@@ -29,7 +29,7 @@ jobs:
         run: |
           REACT_APP_EDAMAM_APP_ID=bc3a4671 \
           REACT_APP_EDAMAM_API_KEY=14a4a3fce3afbdfba21d4c3cfe9fa460 \
-          REACT_APP_BACKEND_SERVER_URL=https://mioqkb90kc.execute-api.ca-central-1.amazonaws.com/prod/api \
+          REACT_APP_BACKEND_SERVER_URL=https://backend-nodejs-mfs1.onrender.com/api \
           npm run build
         env:
           CI: false
