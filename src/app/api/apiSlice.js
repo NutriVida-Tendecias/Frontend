@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials, logout } from "../../features/auth/authSlice";
 
-const baseUrl = process.env.REACT_APP_BACKEND_SERVER_URL;
+const baseUrl = "https://backend-nodejs-mfs1.onrender.com/api"
+//const baseUrl = process.env.REACT_APP_BACKEND_SERVER_URL;
 
 const baseQuery = fetchBaseQuery({
     baseUrl,
