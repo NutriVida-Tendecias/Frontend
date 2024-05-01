@@ -27,9 +27,6 @@ jobs:
 
       - name: Build React app
         run: |
-          REACT_APP_EDAMAM_APP_ID=bc3a4671 \
-          REACT_APP_EDAMAM_API_KEY=14a4a3fce3afbdfba21d4c3cfe9fa460 \
-          REACT_APP_BACKEND_SERVER_URL=https://backend-nodejs-mfs1.onrender.com/api \
           npm run build
         env:
           CI: false
@@ -44,7 +41,7 @@ jobs:
           aws-region: us-east-1
       
       - name: Deploy en S3
-        run: aws s3 sync build/ s3://cooking-home123 --delete
+        run: aws s3 sync build/ s3://tendenciasg2 --delete
 
       - name: CloudFront invalidacion
         env:
