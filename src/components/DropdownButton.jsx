@@ -35,6 +35,7 @@ const DropdownButton = ({ title }) => {
     const onClickProfile = () => navigate("/profile");
     const onClickSearch = () => navigate("/recipes");
     const onClickSuggest = () => navigate("/suggest");
+    const onClickMealPlan = () => navigate("/mealPlan");
 
     return (
         <div
@@ -72,6 +73,12 @@ const DropdownButton = ({ title }) => {
                     onClick={onClickProfile}
                 >
                     Perfil
+                </div>
+                <div
+                    className="w-full py-2 flex justify-center hover:bg-orange-300"
+                    onClick={onClickMealPlan}
+                >
+                    Plan de Comidas
                 </div>
                 <div
                     className="rounded-b-lg w-full py-2 flex justify-center text-blue-700 hover:bg-orange-300"

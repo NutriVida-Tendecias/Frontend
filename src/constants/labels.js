@@ -7,6 +7,47 @@ const dietLabels = [
     "low-sodium"
 ];
 
+const dietTypeLabels = [
+    "alcohol-free",
+    "balanced",
+    "high-fiber",
+    "high-protein",
+    "keto-friendly",
+    "kidney-friendly",
+    "kosher",
+    "low-carb",
+    "low-fat",
+    "low-potassium",
+    "low-sodium",
+    "no-oil-added",
+    "low-sugar",
+    "paleo",
+    "pescatarian",
+    "pork-free",
+    "red-meat-free",
+    "sugar-conscious",
+    "vegan",
+    "vegetarian"
+];
+
+const allergiesLabels = [
+    "celery-free",
+    "crustacean-free",
+    "dairy-free",
+    "egg-free",
+    "fish-free",
+    "gluten-free",
+    "lupine-free",
+    "mollusk-free",
+    "mustard-free",
+    "peanut-free",
+    "sesame-free",
+    "shellfish-free",
+    "soy-free",
+    "tree-nut-free",
+    "wheat-free"
+]
+
 const healthLabels = [
     "alcohol-cocktail",
     "alcohol-free",
@@ -108,6 +149,8 @@ const dishTypeLabels = [
 
 export {
     dietLabels,
+    dietTypeLabels,
+    allergiesLabels,
     healthLabels,
     cuisineTypeLabels,
     mealTypeLabels,

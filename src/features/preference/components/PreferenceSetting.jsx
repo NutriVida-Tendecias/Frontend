@@ -18,10 +18,12 @@ const PreferenceSetting = () => {
     if (isSuccess) {
         const { entities, ids } = preference;
         const currentPreference = entities[ids[0]];
+        const diets = currentPreference?.diets;
+        const allergies = currentPreference?.allergies;
         const favorites = currentPreference?.favorites;
         const ingredients = currentPreference?.ingredients;
 
-        return <PreferenceSettingForm id={ids[0]} favorites={favorites} ingredients={ingredients} />;
+        return <PreferenceSettingForm id={ids[0]} diets={diets} allergies={allergies} favorites={favorites} ingredients={ingredients} />;
     } else if (isLoading) {
         return (
             <div className="flex flex-col gap-10 py-10">

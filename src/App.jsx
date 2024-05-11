@@ -5,6 +5,7 @@ import { Layout, Welcome } from "./components";
 import { Login, RequireAuth, PersistLogin } from "./features/auth/components";
 import { RecipeFinder, RecipeSuggest } from "./features/recipe/components";
 import { Register, Profile } from "./features/users/components";
+import { MealPlan } from "./features/mealPlan/components";
 import { init } from "./features/recipe/searchParamsSlice";
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
                     <Route element={<RequireAuth />}>
                         <Route path="suggest" element={<RecipeSuggest />} />
                         <Route path="profile" element={<Profile />} />
+                        <Route path="mealPlan" element={<MealPlan />}/>
                     </Route>
                 </Route>
             </Route>
