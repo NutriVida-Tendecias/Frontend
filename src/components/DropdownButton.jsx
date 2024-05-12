@@ -78,13 +78,13 @@ const DropdownButton = ({ title }) => {
                     className="w-full py-2 flex justify-center hover:bg-orange-300"
                     onClick={onClickMealPlan}
                 >
-                    Plan de Comidas
+                    Semanal
                 </div>
                 <div
                     className="rounded-b-lg w-full py-2 flex justify-center text-blue-700 hover:bg-orange-300"
                     onClick={onClickSignOut}
                 >
-                    Cerrar sesión
+                    Salir
                 </div>
             </div>
         </div>

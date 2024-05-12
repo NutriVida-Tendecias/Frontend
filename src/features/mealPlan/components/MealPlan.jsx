@@ -25,9 +25,9 @@ const MealPlan  = () => {
             user: id
         };
 
-        return (
-            
+        return (            
             <div className="pt-[72px] pb-10 flex flex-col px-5 md:px-10 lg:px-20">
+
                 <MealPlanService  preference={filteredPreference} />
             </div>
         );

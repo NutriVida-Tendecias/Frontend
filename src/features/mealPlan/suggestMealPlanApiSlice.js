@@ -3,16 +3,17 @@ import edamamApiSlice from "../../app/api/edamamApiSlice";
 import { createQueryStringVersionByUri } from "../../utils/recipeApiUtils";
 
 const suggestAdapter = createEntityAdapter({
-    selectId: recipe => recipe.id
+    selectId: recipe => recipe.uri
 });
 
 const initialState = suggestAdapter.getInitialState();
 
 const suggestMealPlanApiSlice = edamamApiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getRandomRecipes: builder.query({
-            query: (uri) => {
-                const queryString = createQueryStringVersionByUri(uri);
+        getMealPlanRecipe: builder.query({
+            query: (urls) => {
+                console.log("urls: ", urls);
+                const queryString = createQueryStringVersionByUri(urls);
                 const validateStatus = (response, result) => response.status === 200 && !result.isError;
 
                 return {
@@ -22,7 +23,7 @@ const suggestMealPlanApiSlice = edamamApiSlice.injectEndpoints({
             },
             transformResponse: response => {
                 const loadedRecipes = response?.hits?.map(hit => {
-                    const recipeId = hit.recipe.uri.split("#recipe_")[1];
+                    const recipeId = hit.recipe.url.split("#recipe_")[1];
                     hit.recipe.id = recipeId;
 
                     return hit.recipe;
@@ -34,6 +35,6 @@ const suggestMealPlanApiSlice = edamamApiSlice.injectEndpoints({
     })
 });
 
-export const { useGetRecipesMealPlanQuery } = suggestMealPlanApiSlice;
+export const { useGetMealPlanRecipeQuery } = suggestMealPlanApiSlice;
 
 export default suggestMealPlanApiSlice;

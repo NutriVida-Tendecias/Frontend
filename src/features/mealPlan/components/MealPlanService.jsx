@@ -5,16 +5,19 @@ import { MealPlanContainer } from "./";
 
 const MealPlanService = ({ preference }) => {
     const [query, setQuery] = useState("");
+    const [mealType, setMealType] = useState(0); // 0: Desayuno, 1: Almuerzo, 2: Cena
+    const [activeButton, setActiveButton] = useState(0); // Estado para el botón activo
 
     useEffect(() => {
         // Construye la query para obtener el plan de comidas
         const constructedQuery = {
             user: preference.user,
             diets: preference.diets,
-            allergies: preference.allergies
+            allergies: preference.allergies,
+            mealType: mealType // Añadir el tipo de comida a la query
         };
         setQuery(constructedQuery);
-    }, [preference]);
+    }, [preference, mealType]);
 
     const {
         data: recipes,
@@ -34,16 +37,27 @@ const MealPlanService = ({ preference }) => {
         })[dayIndex];
     };
 
+    const handleButtonClick = (type, index) => {
+        setMealType(type);
+        setActiveButton(index);
+    };
+
     if (isSuccess) {
         return (
             <div className="pt-[20px] pb-10 flex flex-col px-5 md:px-10 lg:px-20">
-                <MealPlanContainer type={"Lunes"} recipes={filterRecipesByDay(0)} />
-                <MealPlanContainer type={"Martes"} recipes={filterRecipesByDay(1)} />
-                <MealPlanContainer type={"Miércoles"} recipes={filterRecipesByDay(2)} />
-                <MealPlanContainer type={"Jueves"} recipes={filterRecipesByDay(3)} />
-                <MealPlanContainer type={"Viernes"} recipes={filterRecipesByDay(4)} />
-                <MealPlanContainer type={"Sábado"} recipes={filterRecipesByDay(5)} />
-                <MealPlanContainer type={"Domingo"} recipes={filterRecipesByDay(6)} />
+                <div className="flex" >
+                    <button type="button" className={`flex-1 ${activeButton === 0 ? 'bg-orange-400' : 'bg-orange-500'} text-slate-50 font-bold px-5 py-3 rounded-lg hover:bg-orange-400 mr-2`} onClick={() => handleButtonClick(0, 0)}>Desayuno</button>
+                    <button type="button" className={`flex-1 ${activeButton === 1 ? 'bg-orange-400' : 'bg-orange-500'} text-slate-50 font-bold px-5 py-3 rounded-lg hover:bg-orange-400 mr-2`} onClick={() => handleButtonClick(1, 1)}>Almuerzo</button>
+                    <button type="button" className={`flex-1 ${activeButton === 2 ? 'bg-orange-400' : 'bg-orange-500'} text-slate-50 font-bold px-5 py-3 rounded-lg hover:bg-orange-400`} onClick={() => handleButtonClick(2, 2)}>Cena</button>
+                </div><br/>
+
+                <MealPlanContainer key={`mealPlan_${mealType}_${0}`} type={"Lunes"} recipes={filterRecipesByDay(0)} value={mealType} />
+                <MealPlanContainer key={`mealPlan_${mealType}_${1}`} type={"Martes"} recipes={filterRecipesByDay(1)} value={mealType}  />
+                <MealPlanContainer key={`mealPlan_${mealType}_${2}`} type={"Miércoles"} recipes={filterRecipesByDay(2)} value={mealType} />
+                <MealPlanContainer key={`mealPlan_${mealType}_${3}`} type={"Jueves"} recipes={filterRecipesByDay(3)} value={mealType} />
+                <MealPlanContainer key={`mealPlan_${mealType}_${4}`} type={"Viernes"} recipes={filterRecipesByDay(4)} value={mealType} />
+                <MealPlanContainer key={`mealPlan_${mealType}_${5}`} type={"Sábado"} recipes={filterRecipesByDay(5)} value={mealType} />
+                <MealPlanContainer key={`mealPlan_${mealType}_${6}`} type={"Domingo"} recipes={filterRecipesByDay(6)} value={mealType} />
             </div>
         );
     } else if (isLoading) {

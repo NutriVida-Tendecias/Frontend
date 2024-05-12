@@ -47,9 +47,8 @@ const createQueryStringVersionByUri = (uri) => {
     const authString = `&app_id=${edamamAppId}&app_key=${edamamApiKey}`;
 
     const encodedUri = encodeURIComponent(uri);
-    const uriString = `uri=${encodedUri}`;
 
-    return `?type=public&${uriString}${authString}&random=true&field=uri&field=label&field=image&field=source&field=url&field=yield&field=calories&field=cuisineType&field=mealType`;
+    return `?type=public&uri=${encodedUri}${authString}&random=true&field=uri&field=label&field=image&field=source&field=url&field=dietLabels&field=healthLabels&field=yield&field=calories&field=cuisineType&field=mealType`;
 };
 
 const createMealPlanQueryString = (diets, allergies) => {

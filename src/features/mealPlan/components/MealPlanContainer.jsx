@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Oval } from "react-loader-spinner";
-import { useGetRecipesMealPlanQuery } from "../suggestMealPlanApiSlice";
+import { useGetMealPlanRecipeQuery } from "../suggestMealPlanApiSlice";
 import { MealPlanCard } from "./";
 
-const MealPlanContainer = ({ type, recipes }) => {
-    const [mealPlanData, setMealPlanData] = useState([]);
+const MealPlanContainer = ({ type, recipes, value }) => {
+    const [mealPlanData, setMealPlanData] = useState("");
 
     useEffect(() => {
-        const recipeUrls = Object.values(recipes);
-        setMealPlanData(recipeUrls);
+        const recipesUrls = Object.values(recipes);
+        setMealPlanData(recipesUrls[value]);
     }, []);
 
     const {
@@ -16,16 +16,13 @@ const MealPlanContainer = ({ type, recipes }) => {
         isLoading,
         isSuccess,
         isError
-    } = useGetRecipesMealPlanQuery(mealPlanData, { skip: !mealPlanData });
+    } = useGetMealPlanRecipeQuery(mealPlanData, { skip: !mealPlanData });
 
     if (isSuccess) {
         return (
-            <div className="flex flex-col gap-5 py-10">
-                <h2 className="text-orange-500 font-bold text-xl">{type}</h2>
+            <div className="flex flex-col gap-5 py-2">
                 <div className="flex gap-3 p-2">
-                    {mealPlanData.map((recipe, index) => (
-                        <MealPlanCard key={index} recipe={recipe} />
-                    ))}
+                    <MealPlanCard recipe={recipe} type={type}/>
                 </div>
             </div>
         )

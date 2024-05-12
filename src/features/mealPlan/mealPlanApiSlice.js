@@ -8,7 +8,7 @@ const mealPlanApiSlice = edamamApiSlice.injectEndpoints({
                 const { queryString, requestBodyJson } = createMealPlanQueryString(diets, allergies);
 
                 return {
-                    url: `/api/meal-planner/v1/${queryString}`, // Cambiar la URL base y la ruta según sea necesario
+                    url: `/api/meal-planner/v1/${queryString}`,
                     method: "POST",
                     body: requestBodyJson,
                     headers: {
