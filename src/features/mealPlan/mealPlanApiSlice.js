@@ -14,7 +14,7 @@ const mealPlanApiSlice = edamamApiSlice.injectEndpoints({
                     headers: {
                         "accept": "application/json",
                         "Edamam-Account-User": user, 
-                        "Authorization": "Basic YjNmNTY1ZWQ6Nzc4MzUxOGMxYmY3ZjM0MjAwNjI4NjVmYjlkOThkZDU=",
+                        "Authorization": "Basic YTAxODIyNmU6NTRiMDdkODVjYjgwYWU2M2E4NjhkZjYzOGE1NjgxYjk=",
                         "Content-Type": "application/json"
                     },
                     validateStatus: (response, result) => response.status === 200 && !result.isError
