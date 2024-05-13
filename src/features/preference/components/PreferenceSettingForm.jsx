@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useUpdatePreferenceMutation } from "../preferenceApiSlice";
 import { GiCancel } from "react-icons/gi";
-import { dietTypeLabels, allergiesLabels } from "../../../constants/labels"
+import { dietLabels, allergiesLabels } from "../../../constants/labels"
 
 const PreferenceSettingForm = ({ id, diets, allergies, favorites, ingredients }) => {
     const [diet, setDiet] = useState("");
@@ -124,7 +124,7 @@ const PreferenceSettingForm = ({ id, diets, allergies, favorites, ingredients })
                         onChange={onChangeDiet}
                     >
                         <option value="">Selecciona una opción</option>
-                        {dietTypeLabels.map((option, index) => (
+                        {dietLabels.map((option, index) => (
                             <option key={index} value={option}>
                                 {option}
                             </option>
