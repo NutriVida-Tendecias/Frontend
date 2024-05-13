@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials, logout } from "../../features/auth/authSlice";
 
-const baseUrl = "https://kgpqbrxj3lm56fh6ox43sbcoze0uyplw.lambda-url.us-east-1.on.aws/api"
+const baseUrl = "https://uk5hvereqgisrksbrctfwjmk6e0pqbru.lambda-url.us-east-1.on.aws/api"
 //const baseUrl = process.env.REACT_APP_BACKEND_SERVER_URL;
 
 const baseQuery = fetchBaseQuery({
