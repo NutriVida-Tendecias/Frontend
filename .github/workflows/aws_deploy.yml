@@ -41,7 +41,7 @@ jobs:
           aws-region: us-east-1
       
       - name: Deploy en S3
-        run: aws s3 sync build/ s3://awstendencias --delete
+        run: aws s3 sync build/ s3://tendenciasaws --delete
 
       - name: CloudFront invalidacion
         env:
